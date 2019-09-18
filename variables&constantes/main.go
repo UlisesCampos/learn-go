@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	nombre, apellido := "Ulicode", "Campos"
+	nombre, apellido := "Ulises", "Campos"
 
-	nombre = "Pedro"
+	const nickname = "Ulicode"
 
-	fmt.Println(nombre, apellido)
+	fmt.Println(nombre, apellido, nickname)
 }
