@@ -21,13 +21,14 @@ func main() {
 }
 
 // We can use range to make the 'buffer channels' work as a list and a map
-
-func fibonacci(chan, quit chan int) {
+// Select is for listen more channels
+func fibonacci(cha, quit chan int) {
 	x, y := 1, 1
 	for {
 		select {
-		case chan <- x:
-			x, y = y, x + ycase <- quit:
+		case cha <- x:
+			x, y = y, x+y
+		case <-quit:
 			fmt.Println("quit")
 			return
 		}
