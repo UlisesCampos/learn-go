@@ -8,14 +8,14 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("mysql", "root:140216@tcp(localhost:36306)/test?charset=utf8")
+	db, err := sql.Open("mysql", "root:140216@/test?charset=utf8")
 	checkErr(err)
 
 	// Insert
 	stmt, err := db.Prepare("INSERT userinfo SET username=?,department=?,created=?")
 	checkErr(err)
 
-	res, err := stmt.Exec("Neil", "研发部门", "2020-08-14")
+	res, err := stmt.Exec("Neil", "Informatica", "2020-08-14")
 	checkErr(err)
 
 	id, err := res.LastInsertId()
