@@ -1,2 +1,2 @@
 # Understand Go concepts
-![alt text](https://misfragmentosdecodigo.eu/wp-content/uploads/2018/08/logo-go.png)
+![alt text](https://blog.ironchip.net/wp-content/uploads/2019/04/godocker.png)
