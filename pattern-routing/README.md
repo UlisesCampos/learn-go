@@ -1,6 +1,6 @@
 # Pattern Routing
 
-In Go is handled vy the DefaultServeMux method which is an instance of ServeMux. When nil is passed to the
+In Go is handled by the DefaultServeMux method which is an instance of ServeMux. When nil is passed to the
 handler parameter for the ListenAndServe function then the DefaultServeMux just indirectly calling
 http.DefaultServeMux.HandleFunc(...).
 
