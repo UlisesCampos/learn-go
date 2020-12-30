@@ -27,3 +27,10 @@ net/http wisely defines the foundation Server and Requst, but leaves handling to
 | GET       | /notes/{id} | read   | get a note          |
 | PUT       | /notes/{id} | update | update a note       |
 | DELETE    | /notes/{id} | delete | delete a note       |
+
+
+```sh
+$ curl -X POST http://localhost:8080/api/v1/notes      # note create
+$ curl -X PUT http://localhost:8080/api/v1/notes/3     # update note 3
+$ curl -X DELETE http://localhost:8080/api/v1/notes/3  # delete note 3
+```
