@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+
 	"github.com/Neil-uli/go-play/channels/chat/models"
 	"github.com/go-redis/redis"
 	"github.com/gorilla/mux"
@@ -17,8 +18,10 @@ var rdb *redis.Client
 // WS
 // clients is a list of all the currently active clients (or open WebSockets)
 var clients = make(map[*websocket.Conn]bool)
+
 // broadcaster is a single channel which is responsible for sending and receiving our ChatMessage data structure
 var broadcaster = make(chan models.ChatMessage)
+
 // upgrader is a bit of a clunker; it's necessary to "upgrade" Gorilla incoming requests into a WebSocket connection
 var upgrader = websocket.Upgrader{
 	// CheckOrigin returns true if the request Origin header is acceptable.
@@ -35,10 +38,6 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	r := mux.NewRouter()
-	// Serving static files
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public")))
-	
 
 	// Redis client connection
 	redisURL := os.Getenv("REDIS_URL")
@@ -47,10 +46,14 @@ func main() {
 		panic(err)
 	}
 	rdb = redis.NewClient(opt)
-	
-	// WebSocket Connection 
+
+	r := mux.NewRouter()
+	// Serving static files
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public")))
+
+	// WebSocket Connection
 	r.HandleFunc("/websocket", handleConnections)
-	go handleMessages
+	go handleMessages()
 
 	// Listen and start the server
 	log.Print("Server starting  at localhost:" + port)
