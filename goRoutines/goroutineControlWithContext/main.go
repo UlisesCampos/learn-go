@@ -36,11 +36,13 @@ func ProcessTransactions(ctx context.Context, Transaction *Transaction) {
     }
   }
 }
-func main(
+func main() {
   // let's define a signalling channel
   completed := make(chan struct{})
   var ctx context.Context
   var cancel context.CancelFunc
-) {
+  // let's configure our context 
+  ctx = context.WithValue(context.Background(), "completed", completed)
+  ctx, cancel = context.WithTimeout(ctx, 8*time.Second)
 
 }
