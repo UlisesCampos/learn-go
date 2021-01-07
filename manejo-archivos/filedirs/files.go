@@ -22,3 +22,30 @@ func Capitalizer(f1 *os.File, f2 *os.File) error {
 	}
 	return nil
 }
+
+// CapitalizerExample creates two files, writes to one then calls Capitalizer() on both
+func CapitalizerExample() error {
+	f1, err := os.Create("f1.txt")
+	if err != nil {
+		return err
+	}
+	f2, err := os.Create("f2.txt")
+	if err != nil {
+		return err
+	}
+
+	if _, err := f1.Write([]byte(`this file contains a number of words
+	 and new lines`)); err != nil {
+		return err
+	}
+	if err := Capitalizer(f1, f2); err != nil {
+		return err
+	}
+	if err := os.Remove("f1.txt"); err != nil {
+		return err
+	}
+	if err := os.Remove("f2.txt"); err != nil {
+		return err
+	}
+	return nil
+}

@@ -35,7 +35,7 @@ func Operate() error {
 		return err
 	}
 	// read the file
-	f, err = os.Open("test.txt")
+	f, err = os.Open("text.txt")
 	if err != nil {
 		return err
 	}
