@@ -1,6 +1,9 @@
 package main
 
-import "flag"
+import (
+  "flag"
+  "fmt"
+)
 
 // Config will be the holder for our flags
 type Config struct {
@@ -18,9 +21,9 @@ func (c *Config) Setup() {
   flag.StringVar(&c.subject, "subject", "", "subject is a string, it defaults to empty")
   // shorthand
   flag.StringVar(&c.subject, "s", "", "subject is a string, it defaults to empty (shorthand)")
-  
-  flag.BoolVar(&c.isAwesome, "is_awesome", false, "is it awesomme or what?")
-  flag.IntVar(&c.howAwesome, "how_awesome", 0 , "how awesome is?")
+
+  flag.BoolVar(&c.isAwesome, "isawesome", false, "is it awesomme or what?")
+  flag.IntVar(&c.howAwesome, "howawesome", 10 , "how awesome is?")
 
   // Custom variable type 
   flag.Var(&c.countTheWays, "c", "comma separated list of integers")
@@ -34,7 +37,7 @@ func (c *Config) GetMessage() string {
   } else {
     msg += " is not awesome :C"
   }
-  msg = fmt.Sprintf("%s, with a certainty of %d out of 10. Let me count the ways %s", msg, c.howAwesome, c.countTheWays).String())
+  msg = fmt.Sprintf("%s, with a certainty of %d out of 10. Let me count the ways %s", msg, c.howAwesome, c.countTheWays.String())
   return msg
 } 
 
