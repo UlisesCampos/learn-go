@@ -1,0 +1,2 @@
+CREATE TABLE pets (id SERIAL PRIMARY KEY, name TEXT, species TEXT);
+CREATE TABLE food (id SERIAL PRIMARY KEY, name TEXT, quantity INT);
