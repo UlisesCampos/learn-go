@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	us "github.com/ulisescamps9/hello/POO/user"
+	us "github.com/Neil-uli/go-play/POO/user"
 )
 
 /*
