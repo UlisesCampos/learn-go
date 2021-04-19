@@ -26,6 +26,10 @@ func (p *Persona) Cumpleanios() {
 func (p Programador) beberCafe() {
 	fmt.Println("¡Me siento vivo!")
 }
+
+func (p Persona) canVote() bool {
+    return p.Edad > 18
+}
 func main() {
 	p1 := Programador{
 		Persona{"Orlando", "Monteverde", 26},
@@ -34,6 +38,7 @@ func main() {
 	}
 	p2 := Persona{"Daniel", "Herrera", 32}
 	p3 := Persona{"Carmen", "Salazar", 20}
+    p4 := Persona{"Pepe", "Ramires", 19}
 
 	var vecino Vecino
 	vecino = p1
@@ -42,4 +47,5 @@ func main() {
 	fmt.Println(vecino) // {Daniel Herrera 32}
 	vecino = p3
 	fmt.Println(vecino) // {Carmen Salazar 20}
+    fmt.Println("Puede votar: ", p4.canVote())
 }
