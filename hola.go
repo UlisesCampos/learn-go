@@ -32,5 +32,4 @@ func sw(n map[int]int) {
 }
 func sayHello(what string) {
 	fmt.Println(what)
-	
 }
