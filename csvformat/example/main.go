@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Neil-uli/go-play/csvformat"
+	"github.com/ulicod3/go-play/csvformat"
 )
 
 func main() {
